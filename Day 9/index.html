@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            transition: all;
+            transition-duration: 0.5s;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $("#show1").hide();
+            $("#show").attr("disabled",true);
+            $("#hide").click(function(){
+                $("#box").hide(1000);
+                
+                //$("#hide").hide();
+                $("#hide").attr("disabled",true);
+                $("#show").attr("disabled",false);
+            });
+            $("#show").click(function(){
+                $("#box").show(1000);
+                // $("#show").show();
+                // $("#hide").hide();
+
+                $("#show").attr("disabled",true);
+                $("#hide").attr("disabled",false);
+            });
+            $("#hide1").click(function(){
+                $("#box").hide(1000);
+                $("#hide1").hide();
+                $("#show1").show();
+                $("#hide").attr("disabled",true);
+                $("#show").attr("disabled",false);
+
+            });
+            $("#show1").click(function(){
+                $("#box").show(1000);
+                $("#show1").hide();
+                $("#hide1").show();
+                $("#show").attr("disabled",true);
+                $("#hide").attr("disabled",false);
+
+            });
+            $("#add").click(function(){
+                let a = $("#box").width();
+                let b =  $("#box").height();
+                $("#box").css("width",`${Number(a)+100}px`)
+                $("#box").css("height",`${Number(b)+100}px`)
+            });
+            $("#sub").click(function(){
+                let a = $("#box").width();
+                let b =  $("#box").height();
+                $("#box").css("width",`${Number(a)-100}px`)
+                $("#box").css("height",`${Number(b)-100}px`)
+            })
+
+           
+        })
+    </script>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <br>
+    <button id="hide1">Hide1</button>
+    <button id="show1">Show1</button>
+    <br>
+    <button id="add">+</button>
+    <button id="sub">-</button>
+</body>
+</html>
